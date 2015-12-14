@@ -1,0 +1,45 @@
+﻿@model MVC5Bootstrap.Web.Models.CustomerViewModel
+@{
+    ViewBag.Title = "Filter Demo Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div data-role="page" id="filter-demo-page">
+    <div role="main" class="wrapper ui-content jqm-content">
+        <div id="scroller">
+            <h3 class="ui-bar ui-bar-a ui-corner-all">Filter list view demo</h3>
+            <div class="ui-body ui-body-a ui-corner-all">
+                <p>After you enter <strong>at least three characters</strong> the autocomplete function will show all possible matches.</p>
+                <ul id="autocomplete" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Find a customer..." data-filter-theme="a"></ul>
+            </div>
+
+            <a href="#addCustomerDialog" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-plus ui-btn-icon-left">Add Customer</a>
+            <div id="addCustomerDialog" data-dismissible="true" data-role="popup">
+                <div data-role="header">
+                    <h1>Add Customer</h1>
+                </div>
+                <div role="main" class="ui-content">
+                    @using (Html.BeginForm("AddCustomer", "Home", FormMethod.Post, new { id = "addCustomerForm", data_ajax = "false" }))
+                    {
+                        <label for="FirstName" class="ui-hidden-accessible">First Name:</label>
+                        @Html.TextBoxFor(model => model.FirstName, new { data_clear_btn = "true", placeholder = "Enter First Name" })
+                        @Html.ValidationMessageFor(model => model.FirstName)
+
+                        <label for="Surname" class="ui-hidden-accessible">Surname:</label>
+                        @Html.TextBoxFor(model => model.LastName, new { data_clear_btn = "true", placeholder = "Enter Surname" })
+                        @Html.ValidationMessageFor(model => model.LastName)
+
+                        <label for="Email" class="ui-hidden-accessible">Email Address:</label>
+                        @Html.TextBoxFor(model => model.Email, new { data_clear_btn = "true", placeholder = "Enter Email Address" })
+                        @Html.ValidationMessageFor(model => model.Email)
+
+
+                        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">Cancel</a>
+
+                        <input type="submit" id="add-btn" data-inline="true" data-transition="flow" value="Add" />
+                    }                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

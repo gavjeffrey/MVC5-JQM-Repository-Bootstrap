@@ -1,0 +1,26 @@
+﻿<ul class="jqm-list ui-alt-icon ui-nodisc-icon" id="menu-items">
+    <li data-filtertext="Home" data-icon="home">
+        <a href="@Url.Action("Index", "Home")" class="menu-item"><i class="fa fa-home"></i> Home</a>
+    </li>
+    <li data-filtertext="Performance">
+        <a href="@Url.Action("IScrollDemo", "Home")" data-transition="slidedown" data-prefetch="true" class="menu-item"><i class="fa fa-arrows-v"></i> IScroll Demo page</a>
+    </li>
+    <li data-filtertext="Reports">
+        <a href="@Url.Action("FilterDemo", "Home")" data-transition="slidedown" data-prefetch="true" class="menu-item"><i class="fa fa-filter"></i> Filter demo page</a>
+    </li>
+    <li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" data-filtertext="Apps">
+        <h3><i class="fa fa-wrench"></i> Menu with Children</h3>
+
+        <ul>
+            <li>
+                <a href="#" data-transition="slidedown" data-prefetch="true" class="menu-item">Menu Sub Item 1</a>
+            </li>
+            <li>
+                <a href="#" data-transition="slidedown" data-prefetch="true" class="menu-item">Menu Sub Item 2</a>
+            </li>
+            <li>
+                <a href="#" data-transition="slidedown" data-prefetch="true" class="menu-item">Menu Sub Item 3</a>
+            </li>
+        </ul>
+    </li>    
+</ul>

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no" />
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/mobileCss", "~/Content/css")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquerymobile")
+    @Scripts.Render("~/bundles/jqueryval")
+</head>
+<body>
+    <header data-role="header" data-position="fixed" data-theme="a" id="header">
+        <h1 id="header-app-name">MVC5 Bootstrap sample</h1>
+
+        <a href="#menu" id="menu-btn" data-rel="panel" data-icon="bars" data-iconpos="notext" class="ui-nodisc-icon ui-alt-icon">Menu</a><!--class="ui-btn-left ui-btn ui-btn-icon-left ui-icon-bars"-->
+
+        <a href="#user-detail" data-icon="user" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-nodisc-icon ui-alt-icon">Open right panel</a>
+
+    </header>
+
+    <div data-role="panel" class="jqm-navmenu-panel" data-position="left" id="menu" data-display="overlay" data-theme="a">
+        @Html.Partial("_MenuPartial")
+    </div>
+
+    @RenderBody();
+
+    <div data-role="panel" data-position="right" data-display="overlay" id="user-detail" data-theme="a">
+        <div class="ui-corner-all custom-corners" data-theme="b">
+            <div class="ui-bar ui-bar-a">
+                <h3>My Details</h3>
+            </div>
+            <div class="ui-body ui-body-a">
+                
+            </div>
+        </div>
+
+        <div class="ui-corner-all custom-corners" data-theme="b">
+            @Html.Partial("_LoginPartial")
+        </div>
+
+    </div>
+
+</body>
+@RenderSection("scripts", false);
+</html>
